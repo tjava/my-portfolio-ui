@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: #a278c3;
+  text-align: center;
+}
+
+.homepageImage {
+  flex-direction: row;
+  align-self: center;
+  width: 153;
+  height: 175;
+  border-radius: 20px;
+  margin-top: 7vh;
+}
+
+.homepageWhiteBackground {
+  flex: 1;
+  background-image: url(../../assets/images/homepageWhite.svg);
+  background-size: cover;
+}
+
+.homepagePurpleBackground {
+  flex: 1;
+  background-image: url(../../assets/images/homepagePurple.svg);
+  background-size: cover;
+}
+
+.homepageTitle {
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  position: relative;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  margin-top: 19px;
+  margin-bottom: 4px;
+  line-height: 38px;
+}
+
+.homepageSubtitle {
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.homepageText {
+  flex-direction: row;
+  margin-top: 40px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.homepageIconsWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 84px;
+}
+
+.homepageIcons img {
+  transition: all 2s ease-out;
+}
+.homepageIcons:hover img {
+  transform: scale(1.2);
+  transition: all 2s ease-out;
+}
+
+.homepageIconsText {
+  color: #563d7c;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  align-self: center;
+  margin-top: 4px;
+  margin-bottom: 10vh;
+}

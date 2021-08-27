@@ -1,0 +1,215 @@
+.container {
+  display: flex;
+  flex: 1;
+}
+
+.buttonsFilter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+button,
+input[type='submit'],
+input[type='image'],
+input[type='reset'] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  transition: transform 0.3s ease-out;
+}
+
+input[type='image']:focus {
+  filter: invert(26%) sepia(50%) saturate(800%) hue-rotate(231deg)
+    brightness(94%) contrast(88%);
+  transition-duration: 0.5s;
+  transform: scale(1.6);
+}
+
+.btns input {
+  width: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  height: auto;
+  filter: invert(78%) sepia(22%) saturate(5963%) hue-rotate(211deg)
+    brightness(78%) contrast(95%);
+}
+.btns:hover img {
+  stroke: invert(28%) sepia(14%) saturate(2985%) hue-rotate(232deg)
+    brightness(93%) contrast(87%);
+}
+
+.btns:hover {
+  transition-duration: 0.5s;
+  transform: scale(1.1);
+}
+
+.projectsPurpleTopBackground {
+  background-image: url(../../assets/images/projectsTopBackground.svg);
+  background-size: cover;
+}
+
+.projectsPurpleBottomBackground {
+  background-image: url(../../assets/images/projectsBottomBackground.svg);
+  background-size: cover;
+}
+
+.projectsTitle {
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  position: relative;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  margin-top: 21px;
+  margin-bottom: 4px;
+  line-height: 38px;
+}
+
+.projectsSubtitle {
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.projectsListWrapper {
+  margin-top: 38px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.projectsItem {
+  width: 40vw;
+  max-width: 770px;
+  height: auto;
+  margin-right: 11px;
+  margin-left: 10px;
+  margin-bottom: 21px;
+  background-color: #fbfcfe;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #77479c;
+  border-width: 1px;
+}
+
+.imageBox {
+  overflow: hidden;
+}
+
+.projectsItemImage {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: pointer;
+  align-self: center;
+  justify-content: center;
+  width: 40vw;
+  max-width: 770px;
+  height: auto;
+  transition: transform 7s ease-out;
+}
+
+.projectsItemImage:hover {
+  transform: scale(1.1);
+  transition: transform 7s ease-out;
+}
+
+.projectsItemTitle {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #a278c3;
+  margin-bottom: 10px;
+}
+
+.projectsItemDescription {
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  color: #0c0d0e;
+}
+
+.projectsLanguages {
+  margin-top: 30px;
+  margin-left: 6px;
+  margin-right: 6px;
+  height: 40px;
+  width: 40px;
+  background-size: contain;
+  transition: transform 2s ease-out;
+}
+.projectsLanguages:hover {
+  transform: scale(1.5);
+  transition: transform 2s ease-out;
+}
+
+.projectsLearnMore {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 10px;
+  margin-top: 20px;
+  color: #fbfcfe;
+  background-color: #77479c;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.projectsLearnMore:hover {
+  background-color: #673d88;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+
+@media only screen and (max-width: 1200px) {
+  .projectsItem {
+    width: 60vw;
+  }
+
+  .projectsItemImage {
+    width: 60vw;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .projectsItem {
+    width: 90vw;
+  }
+
+  .projectsItemImage {
+    width: 90vw;
+  }
+
+  .btns input {
+    width: 5vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .btns input {
+    width: 7vw;
+    padding: 0px;
+  }
+}
