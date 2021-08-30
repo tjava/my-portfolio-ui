@@ -13,8 +13,8 @@ export default class Skills extends React.Component{
     }
 
     async componentDidMount(){
-        const skills = await axios.get('https://shanewkeenan.herokuapp.com/api/languages/');
-        this.setState({ skills: skills.data, loading: false, });
+        const skills = await axios.get('https://api.taiwohassan.tk/api/skills/all/');
+        this.setState({ skills: skills.data.data, loading: false, });
     }
     
     render(){ 
@@ -48,7 +48,7 @@ export default class Skills extends React.Component{
                     <div className="skillsPurpleBackground">
                         <div className="skillsListWrapper">
                             {this.state.skills.filter(skill => !skill.name.includes('Y')).map(skill => 
-                                    <div className="skillsItem">
+                                    <div key={skill.id} className="skillsItem">
                                         <img src={skill.image} className="skillsItemImage" alt={skill.name} />
                                         <div className="skillsItemText" >{skill.name}</div>
                                     </div>
@@ -58,6 +58,8 @@ export default class Skills extends React.Component{
                         <p className="skillsListText">For something more tangible, take a look at my projects.</p>
                     </div>
                 </div>
-            )}
+            )
         }
+        
+    }
 }

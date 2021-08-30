@@ -6,7 +6,7 @@
 .detailsPurpleBottomBackground {
   background-image: url(../../assets/images/detailPurpleBottom.svg);
   background-size: cover;
-  height: 100vh;
+  height: 120vh;
 }
 
 .loadingScreenWrapper {

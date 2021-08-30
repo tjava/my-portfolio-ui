@@ -21,40 +21,23 @@ export default class Projects extends React.Component{
         projects: [],
         filteredProjects: [],
         languagesButtons: [
-            {name: 'All', image: all},
-            {name: 'Python', image: python},
-            {name: 'Django', image: django},
-            {name: 'node', image: node},
-            {name: 'React', image: react},
-            {name: 'php', image: php},
-            {name: 'laraval', image: laraval},
-            {name: 'ionic', image: ionic},
-            {name: 'GitHub', image: github},
+            {id: '1', name: 'All', image: all},
+            {id: '2', name: 'Python', image: python},
+            {id: '3', name: 'Django', image: django},
+            {id: '4', name: 'node', image: node},
+            {id: '5', name: 'React', image: react},
+            {id: '6', name: 'php', image: php},
+            {id: '7', name: 'laraval', image: laraval},
+            {id: '8', name: 'ionic', image: ionic},
+            {id: '9', name: 'GitHub', image: github},
         ],
         loading: true,
     }
 
     async componentDidMount(){
-        const projects = await axios.get('https://shanewkeenan.herokuapp.com/api/projects/');
-        this.setState({ projects: projects.data, loading: false, });
-        this.setState({filteredProjects: projects.data});
-    }
-
-    filterProjects = (event) =>{
-        let filteredProjects;
-
-        if(event.target.value === 'All'){
-            filteredProjects = this.state.projects;
-        } else {
-            filteredProjects = this.state.projects.filter(item => {
-                let languagesUsed = item.languagesUsed.some(({name}) => name.includes(event.target.value))
-                return languagesUsed
-            });
-
-        }
-        this.setState({
-            filteredProjects: filteredProjects
-        })
+        const projects = await axios.get('https://api.taiwohassan.tk/api/projects/all/');
+        this.setState({ projects: projects.data.data, loading: false, });
+        this.setState({filteredProjects: projects.data.data});
     }
 
     render(){
@@ -88,8 +71,8 @@ export default class Projects extends React.Component{
                     <div className="buttonsFilter">
                         {this.state.languagesButtons.map((btn, index) => {
                             return(
-                                <div className="btns" >
-                                    <input type="image" alt="icon" src={btn.image} title={btn.name} key={index} value={btn.name} onClick={this.filterProjects} />
+                                <div key={btn.id} className="btns" >
+                                    <input type="image" alt="icon" src={btn.image} title={btn.name} key={index} value={btn.name} />
                                 </div>
                             )
                         })
@@ -97,8 +80,8 @@ export default class Projects extends React.Component{
                     </div>
                     <div className="projectsPurpleBottomBackground">
                         <div className="projectsListWrapper">
-                            {this.state.filteredProjects.map(project => 
-                                    <div className="projectsItem">
+                            {this.state.projects.map(project => 
+                                    <div key={project.id}  className="projectsItem">
                                         <div className="imageBox">
                                             <Link to={`/projects/${project.slug}`}>
                                                 <img src={project.image} className="projectsItemImage" alt={project.name} />
@@ -106,9 +89,7 @@ export default class Projects extends React.Component{
                                         </div>
                                         <div className="projectsItemTitle" >{project.name}</div>
                                         <div className="projectsItemDescription" >{project.description}</div>
-                                        {project.languagesUsed.map(item =>
-                                            <img src={item.image} className="projectsLanguages" title={item.name} alt={item.name} />
-                                        )}
+                                        
                                         <Link to={`/projects/${project.slug}`}>
                                             <p className="projectsLearnMore">Learn More</p>
                                         </Link>

@@ -15,8 +15,8 @@ export default class ProjectDetail  extends React.Component{
     }
 
     async componentDidMount(){
-        const projects = await axios.get(`https://shanewkeenan.herokuapp.com/api/projects/?search=${this.props.match.params.slug}`);
-        this.setState({ project: projects.data, loading: false, });
+        const projects = await axios.get(`https://api.taiwohassan.tk/api/projects/single/${this.props.match.params.slug}`);
+        this.setState({ project: projects.data.data, loading: false, });
     }
 
     render(){
@@ -48,9 +48,11 @@ export default class ProjectDetail  extends React.Component{
                                     <meta name="description" content={project.description} />
                                 </Helmet>
                                 <p className="detailsTitle">{project.name}</p>  
+                                <br />
                                 <div className="languagesListWrapper">
-                                    {project.languagesUsed.map(language => <img src={language.image} className="languagesList" title={language.name} alt={language.name} />)}   
+                                    {project.languagesUsed.map(language => <img key={language.id} src={language.image} className="languagesList" title={language.name} alt={language.name} />)}   
                                 </div>
+                                <br />
                                 <div className="detailsWrapper">
                                     <div className="detailsImageBox">
                                         <img src={project.image} className="detailsImage" alt={project.name} />
@@ -61,15 +63,17 @@ export default class ProjectDetail  extends React.Component{
                                         </Link>
                                         <p className="detailsDescriptionTitle">Description</p>
                                         <p className="detailsDescriptionText">{project.detailDescription}</p>
-                                        <p className="detailsDescriptionTitle">Skills Learned</p>
-                                        <ul>
-                                            {project.skills.map(skill => <li className="detailsDescriptionSkills">{skill.text}</li> )}
-                                        </ul>
-                                        {project.links.map(link => <a target="_blank" href={link.link} rel="noreferrer"><p className="detailsButton">{link.name}</p></a> )}
+                                        
+                                        {project.links.map(link => <a key={link.id} target="_blank" href={link.link} rel="noreferrer"><p className="detailsButton">{link.name}</p></a> )}
                                     </div>
                                 </div>
                             </div>
                         )}
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
                     </div>
                 </div>
             )
